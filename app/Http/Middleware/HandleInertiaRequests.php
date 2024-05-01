@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -34,6 +35,10 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
+                'actions' => [
+                    'canLogin' => Route::has('login'),
+                    'canRegister' => Route::has('register'),
+                ],
             ],
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
