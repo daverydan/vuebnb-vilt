@@ -9,7 +9,7 @@
         <div class="overflow-x-scroll">
             <!-- Listing Summaries -->
             <div class="flex justify-between space-x-4" :style="listingSummariesStyle">
-                <ListingDetails
+                <ListingSummaryDetails
                     v-for="listing in listings"
                     :listing="listing"
                     :key="listing.id"
@@ -21,7 +21,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import ListingDetails from './ListingDetails.vue';
+import ListingSummaryDetails from './ListingSummaryDetails.vue';
 
 const props = defineProps({
     listings: Array,

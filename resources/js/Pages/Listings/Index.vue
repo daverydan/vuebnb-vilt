@@ -4,25 +4,25 @@
 
     <AuthenticatedLayout v-if="$page.props.auth.user">
         <div class="py-8">
-            <ListingGroup
+            <ListingSummaryGroup
                 v-for="(group, country) in listing_groups"
                 :key="country"
                 :listings="group"
                 :country="country"
                 class="pb-5 text-gray-800 dark:text-white"
-            ></ListingGroup>
+            ></ListingSummaryGroup>
         </div>
     </AuthenticatedLayout>
 
     <GuestLayout v-else>
         <div class="h-screen">
-            <ListingGroup
+            <ListingSummaryGroup
                 v-for="(group, country) in listing_groups"
                 :key="country"
                 :listings="group"
                 :country="country"
                 class="pb-5 text-gray-800 dark:text-white"
-            ></ListingGroup>
+            ></ListingSummaryGroup>
         </div>
     </GuestLayout>
 </template>
@@ -30,7 +30,7 @@
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import ListingGroup from '@/Components/Listings/ListingGroup.vue';
+import ListingSummaryGroup from '@/Components/Listings/ListingSummaryGroup.vue';
 import { Head } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
