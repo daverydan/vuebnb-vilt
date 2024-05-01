@@ -4,7 +4,13 @@
         <Link :href="route('listings.show', { 'id': listing.id })">
             <div class="block w-[350px]">
                 <!-- Thumbnail -->
-                <div class="w-[350px] h-[250px] object-cover bg-center group-hover:opacity-75 group-hover:transition group-hover:duration-200 group-hover:ease-in-out rounded mb-2" :style="backgroundImageStyle"></div>
+                <div class="w-[350px] h-[250px] object-cover bg-center rounded mb-2 relative" :style="backgroundImageStyle">
+                    <div class="absolute bg-transparent group-hover:bg-[rgba(0,0,0,.2)] group-hover:transition group-hover:duration-200 group-hover:ease-in-out w-full h-full"></div>
+                    <ListingSave
+                        v-if="$page.props.auth.user"
+                        class="absolute top-3 right-3"
+                    />
+                </div>
                 <!-- Title -->
                 <div class="font-black whitespace-nowrap text-ellipsis overflow-hidden mb-1">
                     <span class="inline-flex items-center rounded-md bg-primary px-2 pt-[2px] text-sm font-medium text-white mr-[5px]">{{ listing.price_per_night }}</span>
@@ -22,6 +28,7 @@
 <script setup>
 import { computed } from 'vue'
 import { Link } from '@inertiajs/vue3'
+import ListingSave from '@/Components/Listings/ListingSave.vue'
 
 const props = defineProps({ listing: Object })
 
