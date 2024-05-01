@@ -1,43 +1,19 @@
 <template>
-    <div class="header">
-        <div class="header-img" :style="headerImageStyle" @click="$emit('header-clicked')">
-            <!-- listing-save goes here -->
-            <button class="view-photos">View Photos</button>
+    <div class="h-80 flex-1 bg-hero bg-cover bg-center bg-no-repeat cursor-pointer hover:opacity-80 transition duration-200" :style="headerImageStyle" @click="$emit('header-clicked')">
+        <!-- listing-save goes here -->
+        <div class="default-container relative h-80">
+            <button type="button" class="absolute bottom-5 bg-white hover:bg-opacity-80 text-sm text-black font-black rounded px-3 py-2 shadow transition duration-150">View Photos</button>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
     // import ListingSave from './ListingSave.vue';
 
-    defineProps({
+    const props = defineProps({
         id: String|Number,
         imageUrl: String,
     })
 
     const headerImageStyle = { 'background-image': `url(${props.imageUrl})` };
 </script>
-
-<style>
-    .header {
-        height: 320px;
-    }
-
-    .header .header-img {
-        background-repeat: no-repeat;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        background-position: 50% 50%;
-        background-color: #f5f5f5;
-        height: 100%;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .header .header-img .view-photos {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-    }
-</style>

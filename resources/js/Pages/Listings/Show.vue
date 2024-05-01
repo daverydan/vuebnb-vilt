@@ -1,16 +1,19 @@
 <template>
     <AuthenticatedLayout v-if="$page.props.auth.user">
-        <pre class="text-white">{{ listing }}</pre>
+        <div class="mb-8">
+            <ListingDetails :listing="listing" />
+        </div>
     </AuthenticatedLayout>
 
     <GuestLayout v-else>
-        <pre class="text-white">{{ listing }}</pre>
+        <ListingDetails :listing="listing" />
     </GuestLayout>
 </template>
 
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import ListingDetails from '@/Components/Listings/ListingDetails.vue';
 
 const props = defineProps({
     listing: Object,

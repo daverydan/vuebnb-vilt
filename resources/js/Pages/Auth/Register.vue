@@ -25,7 +25,7 @@ const submit = () => {
 
         <Head title="Register" />
 
-        <div class="h-screen">
+        <div class="h-screen pt-8">
             <div class="flex flex-col sm:justify-center items-center">
 
                 <div>

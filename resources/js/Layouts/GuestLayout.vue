@@ -13,7 +13,7 @@ const navItems = [
 <template>
     <NavBar :navItems="navItems" />
 
-    <main class="min-h-screen bg-gray-100 dark:bg-gray-900 pt-8">
+    <main class="min-h-screen bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900">
         <slot />
     </main>
 </template>

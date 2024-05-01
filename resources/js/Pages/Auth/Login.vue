@@ -34,7 +34,7 @@ const submit = () => {
 
         <Head title="Log in" />
 
-        <div class="h-screen">
+        <div class="h-screen pt-8">
             <div class="flex flex-col sm:justify-center items-center">
 
                 <div>

@@ -13,7 +13,7 @@ const navItems = [
 <template>
     <NavBar :navItems="navItems" />
 
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900">
         <!-- Page Heading -->
         <header
             class="bg-white dark:bg-gray-800 shadow"

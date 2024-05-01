@@ -33,10 +33,11 @@ class ListingController extends Controller
     public function show(Listing $listing): Response
     {
         // dd($listing);
+        $listing->images = collect([]);
         for ($i = 1; $i <= 4; $i++) {
-            $listing['image_' . $i] = asset(
-                'images/' . $listing->id . '/Image_' . $i . '.jpg'
-            );
+            $listing->images->push(asset(
+                'img/' . $listing->id . '/Image_' . $i . '.jpg'
+            ));
         }
         // dd($listing);
         return Inertia::render('Listings/Show', [
