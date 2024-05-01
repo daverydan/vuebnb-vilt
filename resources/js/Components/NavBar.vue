@@ -79,7 +79,7 @@ const open = ref(false);
                         <div class="flex space-x-4">
                             <Link
                                 v-for="item in navItems"
-                                :href="route(item.url)"
+                                :href="item.url"
                                 class="rounded-md px-3 py-2 text-sm font-medium"
                                 :class="[$page.url === '/'+item.url ? 'bg-primary text-white font-black' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
                             >
@@ -138,7 +138,7 @@ const open = ref(false);
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <Link
                     v-for="item in navItems"
-                    :href="route(item.url)"
+                    :href="item.url"
                     class="block rounded-md px-3 py-2 text-base font-medium"
                     :class="[$page.url === '/'+item.url ? 'bg-primary text-white font-black' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
                     aria-current="page"

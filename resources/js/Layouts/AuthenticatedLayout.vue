@@ -2,6 +2,7 @@
 import NavBar from '@/Components/NavBar.vue'
 
 const navItems = [
+    { name: 'Listings', url: 'listings' },
     { name: 'Saved', url: 'saved' },
 ];
 </script>
