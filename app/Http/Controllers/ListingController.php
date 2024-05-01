@@ -14,7 +14,7 @@ class ListingController extends Controller
         $listings = Listing::all()->each(
             fn ($listing) => $listing->thumb = asset('img/'.$listing->id.'/Image_1_thumb.jpg')
         );
-        return Inertia::render('Index', [
+        return Inertia::render('Listings/Index', [
             'listings' => $listings,
         ]);
     }
@@ -30,7 +30,7 @@ class ListingController extends Controller
         // Listing::create();
     }
 
-    public function show(Listing $listing): void
+    public function show(Listing $listing): Response
     {
         // dd($listing);
         for ($i = 1; $i <= 4; $i++) {
@@ -38,7 +38,10 @@ class ListingController extends Controller
                 'images/' . $listing->id . '/Image_' . $i . '.jpg'
             );
         }
-        dd($listing);
+        // dd($listing);
+        return Inertia::render('Listings/Show', [
+            'listing' => $listing,
+        ]);
     }
 
     public function edit(Listing $listing): void
