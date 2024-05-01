@@ -1,15 +1,15 @@
 <template>
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mb-5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-5">
         <h1 class="text-2xl font-black pb-5">Places in {{ country }}</h1>
 
         <div class="listing-carousel">
             <!-- carousel -->
         </div>
 
-        <!-- <div class="listing-summaries-wrapper"> -->
         <div class="overflow-x-scroll">
-            <div class="listing-summaries" :style="listingSummariesStyle">
-                <ListingSummary
+            <!-- Listing Summaries -->
+            <div class="flex justify-between space-x-4" :style="listingSummariesStyle">
+                <ListingDetails
                     v-for="listing in listings"
                     :listing="listing"
                     :key="listing.id"
@@ -21,7 +21,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import ListingSummary from './ListingSummary.vue';
+import ListingDetails from './ListingDetails.vue';
 
 const props = defineProps({
     listings: Array,
@@ -34,32 +34,13 @@ const listingSummaryWidth = 365;
 const offset = ref(0);
 
 const listingSummariesStyle = computed(() => { transform: `translateX(${offset.value * -listingSummaryWidth}px)` })
+
+const leftArrowStyle = computed(() => { visibility: (this.offset > 0 ? 'visible' : 'hidden') })
+
+const rightArrowStyle = computed(() => { visibility: (this.offset < (this.listings.length - rowSize) ? 'visible' : 'hidden') })
 </script>
 
 <style>
-    .listing-summary-group {
-        padding-bottom: 20px;
-    }
-
-    .listing-summaries-wrapper {
-        overflow: hidden;
-    }
-
-    .listing-summaries {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        transition: transform 0.5s;
-    }
-
-    .listing-summaries > .listing-summary {
-        margin-right: 15px;
-    }
-
-    .listing-summaries > .listing-summary:last-child {
-        margin-right: 0;
-    }
-
     .listing-carousel {
         position: relative;
     }

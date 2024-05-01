@@ -131,7 +131,7 @@ const open = ref(false);
         <!-- Mobile Nav -->
         <div
             v-if="open"
-            class="sm:hidden absolute w-full bg-gray-800"
+            class="sm:hidden absolute w-full bg-gray-800 z-50"
             id="mobile-menu"
         >
             <!-- Mobile Nav Items -->
