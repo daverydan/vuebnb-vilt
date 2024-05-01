@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Index', []);
 })->name('home');
+
+Route::resource('listings', ListingController::class);
 
 Route::get('saved', function () {
     return Inertia::render('Index', []);
