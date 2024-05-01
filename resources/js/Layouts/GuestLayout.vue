@@ -2,9 +2,11 @@
 import NavBar from '@/Components/NavBar.vue'
 import { usePage } from '@inertiajs/vue3'
 
+const url = usePage().props.url;
+
 const navItems = [
-    { name: 'Login', url: `${usePage().props.url}/login` },
-    { name: 'Register', url: `${usePage().props.url}/register` },
+    { name: 'Login', url: `${url}/login` },
+    { name: 'Register', url: `${url}/register` },
 ];
 </script>
 

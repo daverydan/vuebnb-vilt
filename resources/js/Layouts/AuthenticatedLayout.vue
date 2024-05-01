@@ -1,9 +1,12 @@
 <script setup>
 import NavBar from '@/Components/NavBar.vue'
+import { usePage } from '@inertiajs/vue3'
+
+const url = usePage().props.url;
 
 const navItems = [
-    { name: 'Listings', url: 'listings' },
-    { name: 'Saved', url: 'saved' },
+    { name: 'Listings', url: `${url}/listings` },
+    { name: 'Saved', url: `${url}/saved` },
 ];
 </script>
 
