@@ -2,7 +2,7 @@
 import NavBar from '@/Components/NavBar.vue'
 
 const navItems = [
-    { name: 'Dashboard', url: 'dashboard' },
+    { name: 'Saved', url: 'saved' },
 ];
 </script>
 
