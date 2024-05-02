@@ -15,8 +15,8 @@
             </div>
             <hr>
             <div class="about">
-                <h3 class="text-[22px] font-black">About this listing</h3>
-                <!-- <expandable-text>{{ listing.about }}</expandable-text> -->
+                <h3 class="text-[22px] font-black mb-2">About this listing</h3>
+                <ExpandableText>{{ listing.about }}</ExpandableText>
             </div>
         </div>
         <!-- Amenities -->
@@ -38,6 +38,7 @@
 
 <script setup>
 import HeaderImage from '@/Components/Listings/HeaderImage.vue'
+import ExpandableText from '@/Components/Listings/ExpandableText.vue'
 
 const props = defineProps({
     listing: Object,
