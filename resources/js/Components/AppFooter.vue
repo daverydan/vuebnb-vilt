@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-6 pb-7 text-center text-white w-full bg-gray-800 border-y border-gray-100 dark:border-gray-700">
+    <div class="pt-6 pb-7 text-center text-white w-full bg-gray-800 border-y border-gray-700">
         <p class="flex flex-col sm:flex-row justify-center items-center mb-2">
             <ApplicationLogo class="mb-2 sm:mb-0" />
             <span class="hidden sm:inline-block text-[20px] font-black mx-3">/</span>
