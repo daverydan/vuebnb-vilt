@@ -11,7 +11,9 @@ class ListingController extends Controller
 {
     public function index(): Response
     {
-        $listings = Listing::all()->each(
+        $listings = Listing::all([
+            'id', 'address', 'title', 'price_per_night'
+        ])->each(
             fn ($listing) => $listing->thumb = asset('img/'.$listing->id.'/Image_1_thumb.jpg')
         );
         return Inertia::render('Listings/Index', [
@@ -32,7 +34,6 @@ class ListingController extends Controller
 
     public function show(Listing $listing): Response
     {
-        // dd($listing);
         $listing->images = collect([]);
         for ($i = 1; $i <= 4; $i++) {
             $listing->images->push(asset(
