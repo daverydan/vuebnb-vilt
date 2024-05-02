@@ -4,6 +4,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import { onMounted } from 'vue';
 
 defineProps({
     navItems: {
@@ -13,6 +14,26 @@ defineProps({
 })
 
 const open = ref(false);
+
+const userTheme = localStorage.getItem('theme');
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+onMounted(() => {
+    if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+        document.documentElement.classList.add('dark');
+        return;
+    }
+})
+
+const toggleDark = () => {
+    if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        return;
+    }
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+};
 </script>
 
 <template>
@@ -123,6 +144,17 @@ const open = ref(false);
                                 </Dropdown>
                             </div>
                         </div>
+
+                        <button
+                            type="button"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md w-9 text-sm font-medium ml-4 flex items-center justify-center"
+                            @click="toggleDark"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden dark:block">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                            </svg>
+                            <i class="fa-solid fa-lg fa-moon block dark:hidden px-1 -rotate-[25deg]"></i>
+                        </button>
                     </div>
                 </div>
             </div>
