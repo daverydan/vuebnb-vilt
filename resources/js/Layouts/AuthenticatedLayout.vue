@@ -1,5 +1,6 @@
 <script setup>
 import NavBar from '@/Components/NavBar.vue'
+import AppFooter from '@/Components/AppFooter.vue'
 import { usePage } from '@inertiajs/vue3'
 
 const url = usePage().props.url;
@@ -13,7 +14,7 @@ const navItems = [
 <template>
     <NavBar :navItems="navItems" />
 
-    <div class="min-h-screen bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900">
+    <div class="bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900">
         <!-- Page Heading -->
         <header
             class="bg-white dark:bg-gray-800 shadow"
@@ -28,5 +29,13 @@ const navItems = [
         <main>
             <slot />
         </main>
+
+        <AppFooter />
     </div>
 </template>
+
+<style>
+body {
+    @apply bg-gray-100 text-gray-900 dark:text-white dark:bg-gray-900
+}
+</style>

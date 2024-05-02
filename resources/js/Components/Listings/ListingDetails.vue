@@ -12,13 +12,13 @@
             <div class="mb-8">
                 <div class="flex justify-between items-start space-x-4 mb-2">
                     <div>
-                        <h1 class="text-3xl font-black">{{ listing.title }}</h1>
+                        <h1 class="text-3xl font-black mb-2">{{ listing.title }}</h1>
                         <p class="text-gray-400">{{ listing.address }}</p>
                     </div>
                     <span class="inline-flex items-center rounded-md bg-primary px-3 py-[5px] mt-[5px] font-medium text-white">{{ listing.price_per_night }}</span>
                 </div>
             </div>
-            <hr>
+            <hr class="h-px my-8 bg-gray-300 border-0 dark:bg-gray-700">
             <div class="my-8">
                 <h3 class="text-[22px] font-black mb-2">About this listing</h3>
                 <ExpandableText>{{ listing.about }}</ExpandableText>
@@ -26,7 +26,7 @@
         </div>
         <!-- Amenities -->
         <div class="mb-10">
-            <hr>
+            <hr class="h-px my-8 bg-gray-300 border-0 dark:bg-gray-700">
             <div class="text-lg mt-8 mb-6 font-black">Amenities</div>
             <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-5">
                 <div v-for="amenity in computedAmenities" class="">
@@ -36,8 +36,8 @@
             </div>
         </div>
         <!-- Prices -->
-        <div class="pb-10">
-            <hr>
+        <div>
+            <hr class="h-px my-8 bg-gray-300 border-0 dark:bg-gray-700">
             <div class="text-lg mt-8 mb-6 font-black">Prices</div>
             <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
                 <div v-for="(amount, title) in computedPrices" class="">

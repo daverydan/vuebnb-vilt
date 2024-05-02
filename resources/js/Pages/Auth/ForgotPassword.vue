@@ -26,7 +26,7 @@ const submit = () => {
 
         <Head title="Forgot Password" />
 
-        <div class="h-screen pt-8">
+        <div class="pt-8 pb-16">
             <div class="flex flex-col sm:justify-center items-center">
 
                 <div>

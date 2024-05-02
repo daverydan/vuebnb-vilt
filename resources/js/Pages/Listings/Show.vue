@@ -1,12 +1,14 @@
 <template>
     <AuthenticatedLayout v-if="$page.props.auth.user">
-        <div class="mb-8">
+        <div class="mb-20">
             <ListingDetails :listing="listing" />
         </div>
     </AuthenticatedLayout>
 
     <GuestLayout v-else>
-        <ListingDetails :listing="listing" />
+        <div class="mb-20">
+            <ListingDetails :listing="listing" />
+        </div>
     </GuestLayout>
 </template>
 

@@ -15,7 +15,7 @@
     </AuthenticatedLayout>
 
     <GuestLayout v-else>
-        <div class="h-screen py-8">
+        <div class="py-8">
             <ListingSummaryGroup
                 v-for="(group, country) in listing_groups"
                 :key="country"
