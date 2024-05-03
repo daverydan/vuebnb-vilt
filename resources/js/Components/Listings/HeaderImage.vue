@@ -5,6 +5,7 @@
             <div class="w-full flex justify-end pt-5">
                 <ListingSave
                     v-if="$page.props.auth.user"
+                    :id="id"
                     :button="true"
                     class="z-10"
                 />

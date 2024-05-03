@@ -1,15 +1,16 @@
 <template>
     <!-- Listing Summary -->
     <div class="flex flex-grow-0 relative group transition-all duration-200">
+        <ListingSave
+            v-if="$page.props.auth.user"
+            :id="listing.id"
+            class="absolute top-3 right-3 cursor-pointer z-10"
+        />
         <Link :href="route('listings.show', { 'id': listing.id })">
             <div class="block w-[350px]">
                 <!-- Thumbnail -->
                 <div class="w-[350px] h-[250px] object-cover bg-center rounded mb-2 relative" :style="backgroundImageStyle">
                     <div class="absolute bg-transparent group-hover:bg-[rgba(0,0,0,.2)] group-hover:transition group-hover:duration-200 group-hover:ease-in-out w-full h-full"></div>
-                    <ListingSave
-                        v-if="$page.props.auth.user"
-                        class="absolute top-3 right-3"
-                    />
                 </div>
                 <!-- Title -->
                 <div class="font-black whitespace-nowrap text-ellipsis overflow-hidden mb-1">
