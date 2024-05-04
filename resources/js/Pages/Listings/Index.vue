@@ -31,14 +31,21 @@
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ListingSummaryGroup from '@/Components/Listings/ListingSummaryGroup.vue';
-import { Head } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import { Head, usePage } from '@inertiajs/vue3';
+import { computed, onMounted } from 'vue';
+import { useSaveListing } from '@/Composables/useSaveListing'
 
 const props = defineProps({
     listings: {
         type: Array,
     },
 });
+
+const { initializeSavedListings } = useSaveListing();
+
+const page = usePage();
+
+onMounted(() => initializeSavedListings(page.props.auth.user.saved_listings))
 
 const listing_groups = computed(() => {
     if (!props.listings) return {};

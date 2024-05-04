@@ -5,6 +5,7 @@
             v-if="$page.props.auth.user"
             :id="listing.id"
             class="absolute top-3 right-3 cursor-pointer z-10"
+            @toggle-saved="toggleSavedListing($page.props.auth?.user.id, listing.id)"
         />
         <Link :href="route('listings.show', { 'id': listing.id })">
             <div class="block w-[350px]">
@@ -30,8 +31,11 @@
 import { computed } from 'vue'
 import { Link } from '@inertiajs/vue3'
 import ListingSave from '@/Components/Listings/ListingSave.vue'
+import { useSaveListing } from '@/Composables/useSaveListing'
 
 const props = defineProps({ listing: Object })
+
+const { toggleSavedListing } = useSaveListing();
 
 const backgroundImageStyle = computed(() => {
     return {'background-image': `url("${props.listing.thumb}")`}

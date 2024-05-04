@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -44,6 +45,22 @@ class ListingController extends Controller
         return Inertia::render('Listings/Show', [
             'listing' => $listing,
         ]);
+    }
+
+    public function toggleSaved(User $user, Listing $listing, Request $request)
+    {
+        if ($user->saved_listings === null) {
+            $user->saved_listings = [$listing->id];
+        } else {
+            if (in_array($listing->id, $user->saved_listings)) {
+                $filtered = collect($user->saved_listings)
+                    ->filter(fn ($item) => $item !== $listing->id);
+                $user->saved_listings = [...$filtered];
+            } else {
+                $user->saved_listings = [...$user->saved_listings, $listing->id];
+            }
+        }
+        $user->save();
     }
 
     public function edit(Listing $listing): void

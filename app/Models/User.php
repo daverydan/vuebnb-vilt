@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'saved_listings',
     ];
 
     /**
@@ -30,6 +31,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    protected $casts = [
+        'saved_listings' => 'array',
+    ];
+
+    protected $attributes = [
+        'saved_listings' => [],
     ];
 
     /**

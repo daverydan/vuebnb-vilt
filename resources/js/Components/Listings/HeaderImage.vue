@@ -5,6 +5,7 @@
             <div class="w-full flex justify-end pt-5">
                 <ListingSave
                     v-if="$page.props.auth.user"
+                    @toggle-saved="toggleSavedListing($page.props.auth?.user.id, id)"
                     :id="id"
                     :button="true"
                     class="z-10"
@@ -17,11 +18,14 @@
 
 <script setup>
     import ListingSave from './ListingSave.vue';
+    import { useSaveListing } from '@/Composables/useSaveListing'
 
     const props = defineProps({
         id: String|Number,
         imageUrl: String,
     })
+
+    const { toggleSavedListing } = useSaveListing();
 
     const headerImageStyle = { 'background-image': `url(${props.imageUrl})` };
 </script>

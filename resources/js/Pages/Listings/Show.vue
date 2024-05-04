@@ -16,8 +16,17 @@
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ListingDetails from '@/Components/Listings/ListingDetails.vue';
+import { useSaveListing } from '@/Composables/useSaveListing'
+import { usePage } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 
 const props = defineProps({
     listing: Object,
 })
+
+const { initializeSavedListings } = useSaveListing();
+
+const page = usePage();
+
+onMounted(() => initializeSavedListings(page.props.auth.user.saved_listings))
 </script>
