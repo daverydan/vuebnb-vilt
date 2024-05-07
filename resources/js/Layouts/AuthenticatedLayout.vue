@@ -7,7 +7,7 @@ const url = usePage().props.url;
 
 const navItems = [
     { name: 'Listings', url: `${url}/listings` },
-    { name: 'Saved', url: `${url}/saved` },
+    { name: 'Saved', url: `${url}/saved-listings` },
 ];
 </script>
 

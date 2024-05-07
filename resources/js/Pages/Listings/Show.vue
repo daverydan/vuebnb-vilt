@@ -28,5 +28,7 @@ const { initializeSavedListings } = useSaveListing();
 
 const page = usePage();
 
-onMounted(() => initializeSavedListings(page.props.auth.user.saved_listings))
+onMounted(() => {
+    if (page.props.auth.user) initializeSavedListings(page.props.auth.user.saved_listings)
+})
 </script>

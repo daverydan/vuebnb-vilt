@@ -8,9 +8,9 @@
             @toggle-saved="toggleSavedListing($page.props.auth?.user.id, listing.id)"
         />
         <Link :href="route('listings.show', { 'id': listing.id })">
-            <div class="block w-[350px]">
+            <div class="summary-wrapper block w-[300px] sm:w-[350px]">
                 <!-- Thumbnail -->
-                <div class="w-[350px] h-[250px] object-cover bg-center rounded mb-2 relative" :style="backgroundImageStyle">
+                <div class="w-[300px] sm:w-[350px] h-[250px] object-cover bg-center rounded mb-2 relative" :style="backgroundImageStyle">
                     <div class="absolute bg-transparent group-hover:bg-[rgba(0,0,0,.2)] group-hover:transition group-hover:duration-200 group-hover:ease-in-out w-full h-full"></div>
                 </div>
                 <!-- Title -->

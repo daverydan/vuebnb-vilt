@@ -47,6 +47,21 @@ class ListingController extends Controller
         ]);
     }
 
+    public function edit(Listing $listing): void
+    {
+        dd($listing);
+    }
+
+    public function update(Listing $listing): void
+    {
+        dd($listing);
+    }
+
+    public function delete(Listing $listing): void
+    {
+        dd($listing);
+    }
+
     public function toggleSaved(User $user, Listing $listing, Request $request)
     {
         if ($user->saved_listings === null) {
@@ -61,20 +76,5 @@ class ListingController extends Controller
             }
         }
         $user->save();
-    }
-
-    public function edit(Listing $listing): void
-    {
-        dd($listing);
-    }
-
-    public function update(Listing $listing): void
-    {
-        dd($listing);
-    }
-
-    public function delete(Listing $listing): void
-    {
-        dd($listing);
     }
 }

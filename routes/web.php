@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('listings/{listing}', [ListingController::class, 'update'])->name('listings.update');
     Route::delete('listings/{listing}', [ListingController::class, 'destroy'])->name('listings.destroy');
 
-    Route::get('saved', [ListingController::class, 'index'])->name('saved');
+    Route::get('saved-listings', [ListingController::class, 'index'])->name('saved-listings');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
